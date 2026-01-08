@@ -1,0 +1,69 @@
+# These settings are synced to GitHub by Probot
+# - https://probot.github.io/apps/settings/
+# - https://docs.github.com/en/rest/reference/repos#update-a-repository
+
+repository :
+  description                       : It waits for something
+  default_branch                    : main
+  visibility                        : internal
+
+  has_issues                        : false
+  has_projects                      : false
+  has_wiki                          : false
+  has_downloads                     : false
+
+  allow_merge_commit                : false
+  allow_squash_merge                : false
+  allow_rebase_merge                : false
+
+  delete_branch_on_merge            : false
+  # enable_automated_security_fixes : false
+  # enable_vulnerability_alerts     : false
+
+branches :
+  - name       : main
+    protection :
+
+      # Required. Require at least two approving reviews on a pull request,
+      # before merging. Set to null to disable.
+      required_pull_request_reviews :
+        # The number of approvals required.
+        required_approving_review_count : 2
+
+        # Automatically remove approvals when a new commit is pushed.
+        dismiss_stale_reviews : true
+
+        # Do not allow PR merges until a "code owner" has reviewed it.
+        require_code_owner_reviews : false
+
+      # Required. Require status checks to pass before merging.
+      # Set "required_status_checks : null" to disable status checks.
+      required_status_checks :
+        # Required. Require branches to be up to date before merging.
+        strict : true
+
+        # Required. The list of status checks to require in order to merge
+        # into this branch.
+        contexts : []
+
+      # Required. Enforce all configured restrictions for administrators.
+      # Set to true to enforce required status checks for repo admins.
+      enforce_admins : false
+
+      # Prevent merge commits from being pushed to matching branches.
+      required_linear_history : false
+
+      # Require all commits to have GPG signatures.
+      required_signatures : false
+
+      # Ensure all review conversations are seen and addressed prior to merging
+      required_conversation_resolution : true
+
+      # Restrict who can push to the protected branch. Note that app, user,
+      # and team restrictions are only available for organization-owned repos.
+      # Set "restrictions : null" to disable.
+      restrictions :
+        apps  : []
+        users : []
+        teams : []
+
