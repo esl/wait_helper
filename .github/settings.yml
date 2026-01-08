@@ -5,7 +5,6 @@
 repository :
   description                       : It waits for something
   default_branch                    : main
-  visibility                        : internal
 
   has_issues                        : false
   has_projects                      : false
@@ -48,7 +47,7 @@ branches :
 
       # Required. Enforce all configured restrictions for administrators.
       # Set to true to enforce required status checks for repo admins.
-      enforce_admins : false
+      enforce_admins : true
 
       # Prevent merge commits from being pushed to matching branches.
       required_linear_history : false
